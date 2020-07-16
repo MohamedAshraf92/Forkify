@@ -1,7 +1,7 @@
 import Search from './models/Search'
 import Recipe from './models/Recipe'
 import * as searchView from './views/searchView'
-import * as recipeView from './views/searchView'
+import * as recipeView from './views/recipeView'
 import { elements, renderLoader, clearLoader } from './views/base'
 
 const state = {}
@@ -57,7 +57,7 @@ elements.searchResPages.addEventListener('click', e => {
 
 const controlRecipe = async () => {
     const id = window.location.hash.replace('#', '')
-    console.log(id)
+    // console.log(id)
 
     if (id) {
         // prepare UI for changes
@@ -79,7 +79,7 @@ const controlRecipe = async () => {
             clearLoader()
             recipeView.renderRecipe(state.recipe)
 
-        } catch (error) {
+        } catch (err) {
             alert('Error processing recipe')
         }
     }
